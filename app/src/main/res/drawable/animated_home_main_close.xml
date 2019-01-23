@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+                 android:drawable="@drawable/ic_book">
+    <target
+            android:name="group_book_three"
+            android:animation="@animator/animator_home_home_close">
+    </target>
+
+</animated-vector>
+

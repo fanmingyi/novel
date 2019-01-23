@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="48dp"
+        android:height="48dp"
+        android:viewportWidth="100"
+        android:viewportHeight="100">
+    <group
+            android:translateX="5"
+            android:translateY="10"
+    >
+        <group
+                android:name="group_book_one"
+        >
+            <path
+                    android:strokeWidth="3"
+                    android:strokeColor="@drawable/select_home_tv_color"
+                    android:name="book_one"
+                    android:pathData="M0,10 h23,v70,h-23,z,
+            "
+            ></path>
+
+            <path
+                    android:strokeWidth="2"
+                    android:strokeColor="@drawable/select_home_tv_color"
+                    android:pathData="m5,18,h13,v4,5,h-13,z"
+            ></path>
+
+        </group>
+
+        <group
+                android:translateX="30"
+                android:name="group_book_two"
+        >
+            <path
+                    android:strokeWidth="3"
+                    android:strokeColor="@drawable/select_home_tv_color"
+                    android:name="book_one"
+                    android:pathData="M0,00 h20,v80,h-20,z,
+            "
+            ></path>
+
+            <path
+                    android:strokeWidth="2"
+                    android:strokeColor="@drawable/select_home_tv_color"
+                    android:pathData="m4,8,h12,v4,5,h-12,z"
+            ></path>
+
+        </group>
+        <group
+                android:translateX="62"
+                android:pivotY="70"
+                android:name="group_book_three"
+        >
+            <path
+                    android:strokeWidth="3"
+                    android:strokeColor="@drawable/select_home_tv_color"
+                    android:name="book_one"
+                    android:pathData="M0,10 h23,v70,h-23,z,
+            "
+            ></path>
+
+            <path
+                    android:strokeWidth="2"
+                    android:strokeColor="@drawable/select_home_tv_color"
+                    android:pathData="m5,18,h13,v4,5,h-13,z"
+            ></path>
+
+        </group>
+
+    </group>
+
+
+</vector>
