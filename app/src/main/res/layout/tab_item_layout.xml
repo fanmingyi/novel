@@ -14,7 +14,7 @@
             app:layout_constraintVertical_weight="6"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:srcCompat="@drawable/select_cb_bg"
+            app:srcCompat="@drawable/select_home_main"
             android:layout_gravity="center"
             android:tintMode="src_in"
             android:tint="@drawable/select_home_tv_color"

@@ -10,12 +10,14 @@ import com.tencent.mmkv.MMKV;
  * @date 2019/1/2
  */
 public class App extends Application {
-
+    public static App INSTANCE;
+    {
+        INSTANCE = this;
+    }
 
     @Override
     public void onCreate() {
         super.onCreate();
-
         MMKV.initialize(this);
     }
 

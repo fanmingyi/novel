@@ -1,77 +1,122 @@
-package book.fmy.org
+package book.fmy.org.ui.activity
 
 import android.graphics.drawable.AnimatedVectorDrawable
 import android.graphics.drawable.StateListDrawable
 import android.os.Bundle
+import android.util.SparseArray
 import android.widget.ImageView
 import androidx.annotation.DrawableRes
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import book.fmy.org.R
+import book.fmy.org.ui.fragment.HomeMainFragment
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.tab_item_layout.view.*
 
-class MainActivity : AppCompatActivity() {
+
+class MainActivity : BaseActivity() {
+
+
+    val index2Fragment by lazy {
+        val sparseArray = SparseArray<Fragment>()
+        sparseArray.put(0, homeMainFragment)
+        sparseArray
+
+    }
+
+    val homeMainFragment: HomeMainFragment by lazy {
+        val fragment = HomeMainFragment.newInstance()
+        fragment
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        initView()
+        initClick()
 
-        newTabItem("主页",R.drawable.select_cb_bg,tb_navigation)
-        newTabItem("分类",R.drawable.select_home_classification,tb_navigation)
-        newTabItem("个人",R.drawable.select_home_personage,tb_navigation)
+    }
+
+    private fun initClick() {
+
+
+    }
+
+    private fun initView() {
+        initNavacation()
+    }
+
+    private fun initNavacation() {
+
 
         tb_navigation.addOnTabSelectedListener(object : TabLayout.BaseOnTabSelectedListener<TabLayout.Tab> {
             override fun onTabReselected(tab: TabLayout.Tab) {
 
             }
-
             override fun onTabUnselected(tab: TabLayout.Tab) {
                 var iv: ImageView = tab.customView!!.findViewById(R.id.iv_icon)
                 if (iv.drawable is StateListDrawable) {
-
                     val stateListDrawable = iv.drawable as StateListDrawable
-
                     val animatedVectorDrawable = stateListDrawable.current
-
                     (animatedVectorDrawable as AnimatedVectorDrawable).start()
-
                     println()
 
 
+                }
+                val fragment = index2Fragment[tab.position]
+
+                fragment?.let {
+
+                    val transient = this@MainActivity.supportFragmentManager.beginTransaction()
+                    transient.hide(it)
+                    transient.commitAllowingStateLoss()
                 }
             }
 
             override fun onTabSelected(tab: TabLayout.Tab) {
                 println()
                 var iv: ImageView = tab.customView!!.findViewById(R.id.iv_icon)
-
-
                 if (iv.drawable is StateListDrawable) {
-
                     val stateListDrawable = iv.drawable as StateListDrawable
-
                     val animatedVectorDrawable = stateListDrawable.current
-
                     (animatedVectorDrawable as AnimatedVectorDrawable).start()
-
                     println()
+                }
 
+                var fragment = index2Fragment[tab.position]
+
+
+                fragment?.let {
+                    val transient = this@MainActivity.supportFragmentManager.beginTransaction()
+                    if (!it.isAdded) {
+                        transient.add(R.id.fl_contain, it)
+                    }
+                    transient.show(it)
+                    transient.commitAllowingStateLoss()
                 }
             }
 
-
         })
+
+        newTabItem("主页", R.drawable.select_home_main, tb_navigation,true)
+        newTabItem("分类", R.drawable.select_home_classification, tb_navigation)
+        newTabItem("个人", R.drawable.select_home_personage, tb_navigation)
 
     }
 
 
-    fun newTabItem(title: String, @DrawableRes stateListDrawableId: Int, tabLayout: TabLayout) {
+    fun newTabItem(
+        title: String, @DrawableRes stateListDrawableId: Int,
+        tabLayout: TabLayout,
+        isSelect: Boolean = false
+    ) {
+
         val newTab = tabLayout.newTab()
-        var tabItemLayout = layoutInflater.inflate(R.layout.tab_item_layout, newTab.view, false);
+        var tabItemLayout = layoutInflater.inflate(book.fmy.org.R.layout.tab_item_layout, newTab.view, false);
         tabItemLayout.iv_icon.setImageDrawable(getDrawable(stateListDrawableId))
         tabItemLayout.tv_tab_name.text = title
         newTab.customView = tabItemLayout
-        tabLayout.addTab(newTab)
+        tabLayout.addTab(newTab, isSelect)
     }
 
 }
