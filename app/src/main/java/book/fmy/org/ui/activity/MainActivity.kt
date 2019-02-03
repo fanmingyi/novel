@@ -66,7 +66,6 @@ class MainActivity : BaseActivity() {
                 val fragment = index2Fragment[tab.position]
 
                 fragment?.let {
-
                     val transient = this@MainActivity.supportFragmentManager.beginTransaction()
                     transient.hide(it)
                     transient.commitAllowingStateLoss()
@@ -74,17 +73,14 @@ class MainActivity : BaseActivity() {
             }
 
             override fun onTabSelected(tab: TabLayout.Tab) {
-                println()
                 var iv: ImageView = tab.customView!!.findViewById(R.id.iv_icon)
                 if (iv.drawable is StateListDrawable) {
                     val stateListDrawable = iv.drawable as StateListDrawable
                     val animatedVectorDrawable = stateListDrawable.current
                     (animatedVectorDrawable as AnimatedVectorDrawable).start()
-                    println()
                 }
 
                 var fragment = index2Fragment[tab.position]
-
 
                 fragment?.let {
                     val transient = this@MainActivity.supportFragmentManager.beginTransaction()

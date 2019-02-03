@@ -2,9 +2,12 @@ package book.fmy.org.net
 
 import android.util.Log
 import book.fmy.org.constant.Const.Net.URL_BASE
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.util.concurrent.TimeUnit
 
 class HttpLogger : HttpLoggingInterceptor.Logger {
@@ -28,7 +31,10 @@ object NetHelper {
 
 
     val retrofit: Retrofit by lazy {
-        Retrofit.Builder().baseUrl(URL_BASE).build()
+        Retrofit.Builder().baseUrl(URL_BASE).client(okHttpClient)
+            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(ScalarsConverterFactory.create())
+            .addCallAdapterFactory(CoroutineCallAdapterFactory()).build()
     }
 
     val service by lazy {
