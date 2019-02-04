@@ -34,7 +34,6 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
         initView()
         initClick()
-
     }
 
     private fun initClick() {

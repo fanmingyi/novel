@@ -6,8 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import book.fmy.org.R
+import book.fmy.org.adapters.HomeMiddleRecommendAdapter
 import book.fmy.org.adapters.HomeTopRecommendAdapter
 import book.fmy.org.animation.ZoomOutPageTransformer
+import book.fmy.org.net.BookInfo
 import book.fmy.org.viewmodels.HomeMainViewModel
 import kotlinx.android.synthetic.main.fragment_home_main.*
 
@@ -47,7 +52,21 @@ class HomeMainFragment : BaseFragment<HomeMainViewModel>() {
     }
 
     private fun initMiddleRecommentView() {
+        val homeMiddleRecommendAdapter =
+            HomeMiddleRecommendAdapter(R.layout.item_main_middle_recommend_layout, mutableListOf())
+        val linearLayoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+        rv_recommend.layoutManager = linearLayoutManager
+        rv_recommend.adapter = homeMiddleRecommendAdapter
+//        rv_recommend.setHasFixedSize(true)
+        rv_recommend.isNestedScrollingEnabled = false
+        viewModel.getMiddleRecommendBooks()
+        viewModel.middleRecommendBooks.observe(viewLifecycleOwner,
+            Observer<List<BookInfo>> { data ->
+                homeMiddleRecommendAdapter.dataList.clear()
+                homeMiddleRecommendAdapter.dataList.addAll(data)
+                homeMiddleRecommendAdapter.notifyDataSetChanged()
 
+            })
     }
 
     private fun initTopRecommentView() {
@@ -59,7 +78,7 @@ class HomeMainFragment : BaseFragment<HomeMainViewModel>() {
 
         vp.offscreenPageLimit = 5
 
-        viewModel.recommendBooks.observe(viewLifecycleOwner, Observer { data ->
+        viewModel.topRecommendBooks.observe(viewLifecycleOwner, Observer { data ->
             myAdapter.mData = List(5) {
                 if (it == 0) {
                     return@List data[2]
@@ -77,10 +96,20 @@ class HomeMainFragment : BaseFragment<HomeMainViewModel>() {
             return@setOnTouchListener vp.onTouchEvent(e)
         }
 
-
+        lifecycle.addObserver(myAdapter)
         viewModel.getTopRecommendBooks()
+
 
     }
 
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+    }
 }
