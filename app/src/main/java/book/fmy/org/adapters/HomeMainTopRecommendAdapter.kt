@@ -17,7 +17,7 @@ import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 import kotlinx.android.synthetic.main.item_main_top_recommend_layout.view.*
 
 
-class HomeTopRecommendAdapter(var mData: List<String>, val vp: ViewPager) : PagerAdapter(),
+class HomeMainTopRecommendAdapter(var mData: List<String>, val vp: ViewPager) : PagerAdapter(),
     ViewPager.OnPageChangeListener, LifecycleObserver {
 
 

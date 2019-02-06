@@ -8,6 +8,7 @@ import android.widget.ImageView
 import androidx.annotation.DrawableRes
 import androidx.fragment.app.Fragment
 import book.fmy.org.R
+import book.fmy.org.ui.fragment.HomeClassifyFragment
 import book.fmy.org.ui.fragment.HomeMainFragment
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_main.*
@@ -20,12 +21,17 @@ class MainActivity : BaseActivity() {
     val index2Fragment by lazy {
         val sparseArray = SparseArray<Fragment>()
         sparseArray.put(0, homeMainFragment)
+        sparseArray.put(1, homeClassifyFragment)
         sparseArray
 
     }
 
     val homeMainFragment: HomeMainFragment by lazy {
         val fragment = HomeMainFragment.newInstance()
+        fragment
+    }
+    private val homeClassifyFragment: HomeClassifyFragment by lazy {
+        val fragment = HomeClassifyFragment.newInstance()
         fragment
     }
 
@@ -52,6 +58,7 @@ class MainActivity : BaseActivity() {
             override fun onTabReselected(tab: TabLayout.Tab) {
 
             }
+
             override fun onTabUnselected(tab: TabLayout.Tab) {
                 var iv: ImageView = tab.customView!!.findViewById(R.id.iv_icon)
                 if (iv.drawable is StateListDrawable) {
@@ -93,7 +100,7 @@ class MainActivity : BaseActivity() {
 
         })
 
-        newTabItem("主页", R.drawable.select_home_main, tb_navigation,true)
+        newTabItem("主页", R.drawable.select_home_main, tb_navigation, true)
         newTabItem("分类", R.drawable.select_home_classification, tb_navigation)
         newTabItem("个人", R.drawable.select_home_personage, tb_navigation)
 

@@ -9,8 +9,8 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import book.fmy.org.R
-import book.fmy.org.adapters.HomeMiddleRecommendAdapter
-import book.fmy.org.adapters.HomeTopRecommendAdapter
+import book.fmy.org.adapters.HomeMainMiddleRecommendAdapter
+import book.fmy.org.adapters.HomeMainTopRecommendAdapter
 import book.fmy.org.animation.ZoomOutPageTransformer
 import book.fmy.org.net.BookInfo
 import book.fmy.org.viewmodels.HomeMainViewModel
@@ -53,11 +53,11 @@ class HomeMainFragment : BaseFragment<HomeMainViewModel>() {
 
     private fun initMiddleRecommentView() {
         val homeMiddleRecommendAdapter =
-            HomeMiddleRecommendAdapter(R.layout.item_main_middle_recommend_layout, mutableListOf())
+            HomeMainMiddleRecommendAdapter(R.layout.item_main_middle_recommend_layout, mutableListOf())
         val linearLayoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-        rv_recommend.layoutManager = linearLayoutManager
+        rv_recommend.layoutManager = linearLayoutManager as RecyclerView.LayoutManager?
         rv_recommend.adapter = homeMiddleRecommendAdapter
-//        rv_recommend.setHasFixedSize(true)
+        rv_recommend.setHasFixedSize(true)
         rv_recommend.isNestedScrollingEnabled = false
         viewModel.getMiddleRecommendBooks()
         viewModel.middleRecommendBooks.observe(viewLifecycleOwner,
@@ -72,7 +72,7 @@ class HomeMainFragment : BaseFragment<HomeMainViewModel>() {
     private fun initTopRecommentView() {
 
         val zoomOutPageTransformer = ZoomOutPageTransformer()
-        val myAdapter = HomeTopRecommendAdapter(arrayListOf<String>(), vp)
+        val myAdapter = HomeMainTopRecommendAdapter(arrayListOf<String>(), vp)
         vp.setPageTransformer(true, zoomOutPageTransformer)
         vp.adapter = myAdapter
 

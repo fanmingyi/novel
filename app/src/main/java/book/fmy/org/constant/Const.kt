@@ -12,5 +12,9 @@ object Const {
          * 静态资源URL前缀resource
          */
         const val URL_RESOURCE = "http://statics.zhuishushenqi.com"
+
+        const val gender_type_male = "male";
+
+        const val gender_type_female = "female";
     }
 }
