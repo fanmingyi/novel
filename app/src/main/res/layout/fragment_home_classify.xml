@@ -20,13 +20,22 @@
 				app:layout_constraintWidth_percent="0.3"
 				android:layout_height="match_parent"/>
 
-		<androidx.recyclerview.widget.RecyclerView
-				android:id="@+id/rv_show_book"
+		<!--<androidx.recyclerview.widget.RecyclerView-->
+		<!--android:id="@+id/rv_show_book"-->
+		<!--android:layout_width="0dp"-->
+		<!--android:overScrollMode="never"-->
+		<!--app:layout_constraintLeft_toRightOf="@id/rv_book_classify"-->
+		<!--app:layout_constraintRight_toRightOf="parent"-->
+		<!--android:layout_height="match_parent"/>-->
+
+		<FrameLayout
+				android:id="@+id/fl_show_book"
 				android:layout_width="0dp"
 				android:overScrollMode="never"
 				app:layout_constraintLeft_toRightOf="@id/rv_book_classify"
 				app:layout_constraintRight_toRightOf="parent"
 				android:layout_height="match_parent"/>
+
 
 	</androidx.constraintlayout.widget.ConstraintLayout>
 

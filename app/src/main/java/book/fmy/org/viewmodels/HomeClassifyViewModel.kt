@@ -1,6 +1,9 @@
 package book.fmy.org.viewmodels
 
 import android.app.Application
+import android.text.TextUtils
+import android.util.ArrayMap
+import androidx.core.util.Pair
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import book.fmy.org.constant.Const
@@ -25,55 +28,39 @@ class HomeClassifyViewModel(app: Application) : BaseViewModel(app) {
         return@lazy mutableLiveData
     }
 
-    /**
-     *  右侧分类信息
-     */
-    val categoriBooklist: MutableLiveData<MutableList<BookInfo>> by lazy {
-        val mutableListOf = mutableListOf<BookInfo>()
-        val mutableLiveData = MutableLiveData<MutableList<BookInfo>>()
-        mutableLiveData.value = mutableListOf
-        return@lazy mutableLiveData
-    }
 
-    fun getCategoriBooklist(
-        gender: String,
-        major: String,
-        minor: String,
-        start: Int,
-        limit: Int,
-        type: String = "hot"
-    ) {
-
-        launch(Dispatchers.IO) {
-            val queryCategoryInfo = NetHelper.service.categoryInfo(gender, major, minor, start, limit, type).await()
-
-            val books = queryCategoryInfo.books
-
-            categoriBooklist.value!!.clear()
-            categoriBooklist.value!!.addAll(books)
-            categoriBooklist.postValue(categoriBooklist.value!!)
-
-        }
-
-
-    }
+    //男生
+    private val maleSubCategoriesList = ArrayMap<String, MutableList<BookInfo>>()
+    //女生
+    private val femaleSubCategoriesList = ArrayMap<String, MutableList<BookInfo>>()
 
     fun getSubCategoriesFlatList() {
         launch(Dispatchers.IO) {
             val data = NetHelper.service.subategories().await()
+
             var list = mutableListOf<SubCategoriesFlat>()
 
-            val maleList = data.male.flatMap {
-                it.mins
-            }.map {
-                SubCategoriesFlat(data.male[0].major, it,Const.Net.gender_type_male)
-            }
+            val maleList = data.male.map { subCategories ->
+                val mutableList = mutableListOf<SubCategoriesFlat>()
+                subCategories.mins.forEach { minName ->
+                    val subCategoriesFlat =
+                        SubCategoriesFlat(subCategories.major, minName, Const.Net.gender_type_male)
+                    mutableList.add(subCategoriesFlat)
 
-            val femaleList = data.male.flatMap {
-                it.mins
-            }.map {
-                SubCategoriesFlat(data.female[0].major, it,Const.Net.gender_type_female)
-            }
+                }
+                return@map mutableList
+            }.flatten()
+
+            val femaleList = data.female.map { subCategories ->
+                val mutableList = mutableListOf<SubCategoriesFlat>()
+                subCategories.mins.forEach { minName ->
+                    val subCategoriesFlat =
+                        SubCategoriesFlat(subCategories.major, minName, Const.Net.gender_type_female)
+                    mutableList.add(subCategoriesFlat)
+                }
+
+                return@map mutableList
+            }.flatten()
 
             list.addAll(maleList)
             list.addAll(femaleList)

@@ -27,7 +27,6 @@ class HomeMainViewModel(app: Application) : BaseViewModel(app) {
 
     override fun onCreat() {
         super.onCreat()
-        Log.e("FMY", "onCreat")
     }
 
     override fun onResume() {
