@@ -6,7 +6,7 @@
 		android:layout_width="match_parent"
 		android:id="@+id/mcv_root"
 		android:layout_height="wrap_content"
-		app:cardBackgroundColor="@color/bg_color"
+		app:cardBackgroundColor="@color/colorDefaultBackground"
 		>
 
 	<androidx.constraintlayout.widget.ConstraintLayout

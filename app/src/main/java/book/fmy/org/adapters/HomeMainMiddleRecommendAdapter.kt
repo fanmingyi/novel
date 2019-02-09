@@ -17,9 +17,9 @@ class HomeMainMiddleRecommendAdapter(@LayoutRes layoutResId: Int, var dataList: 
 
     override fun convert(helper: BaseViewHolder, book: BookInfo) {
 
-        helper.setText(R.id.tv_introduce, book.shortIntro)
+        helper.setText(R.id.tv_book_introduce, book.shortIntro)
         helper.setText(R.id.tv_book_name, book.title)
-        helper.setText(R.id.tv_author, book.author)
+        helper.setText(R.id.tv_book_author, book.author)
         helper.setText(R.id.tv_type, book.majorCate)
         val serial = if (book.isSerial) "连载" else "完结";
         helper.setText(R.id.tv_isSerial, serial)

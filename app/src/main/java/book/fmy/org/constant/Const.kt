@@ -17,4 +17,16 @@ object Const {
 
         const val gender_type_female = "female";
     }
+
+    /**
+     * Intent传递数据的书籍Key
+     */
+    object IntentData {
+        /**
+         *BookInfo
+         */
+        const val BOOK_INFO_OBJ_INTENT_KEY = "BOOK_INFO_OBJ_INTENT_KEY"
+
+
+    }
 }
