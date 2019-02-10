@@ -19,6 +19,7 @@
 	<TextView
 			android:layout_width="match_parent"
 			android:textColor="#dbdbdb"
+			android:id="@+id/tv_tip"
 			android:gravity="center"
 			android:text="暂无数据"
 			android:textSize="23sp"

@@ -68,7 +68,7 @@ dependencies {
     //阴影库 https://github.com/harjot-oberai/MaterialShadows
     implementation 'com.sdsmdg.harjot:materialshadows:1.2.5'
 
-    //glide动画库
+    //glide动画库https://github.com/wasabeef/glide-transformations
     implementation 'jp.wasabeef:glide-transformations:+'
 
     //https://github.com/CymChad/BaseRecyclerViewAdapterHelper

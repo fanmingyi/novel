@@ -22,7 +22,6 @@
 	<View
 			android:layout_width="0dp"
 			android:background="#999"
-			android:layout_marginBottom="3dp"
 			app:layout_constraintLeft_toLeftOf="parent"
 			app:layout_constraintRight_toRightOf="parent"
 			app:layout_constraintBottom_toTopOf="@id/tb_navigation"
@@ -30,7 +29,7 @@
 
 	<com.google.android.material.tabs.TabLayout
 			android:id="@+id/tb_navigation"
-
+			android:paddingTop="3dp"
 			android:layout_width="match_parent"
 			app:tabBackground="@android:color/transparent"
 			app:tabRippleColor="@android:color/transparent"

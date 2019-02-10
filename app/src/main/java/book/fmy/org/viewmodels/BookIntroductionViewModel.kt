@@ -31,15 +31,23 @@ class BookIntroductionViewModel(app: Application) : BaseViewModel(app) {
     fun getComment() {
 
         launch {
-            val bookDetail = NetHelper.service.queryBookComment(bookInfo.value!!._id).await()
-            queryComment.postValue(bookDetail)
+            val bookDetail: QueryComment
+            try {
+                bookDetail = NetHelper.service.queryBookComment(bookInfo.value!!._id).await()
+                queryComment.postValue(bookDetail)
+                withContext(Dispatchers.Main) {
+                    commentList.value!!.clear()
+                    commentList.value?.addAll(bookDetail.docs)
+                    commentList.value = commentList.value
 
-            withContext(Dispatchers.Main) {
-                commentList.value!!.clear()
-                commentList.value?.addAll(bookDetail.docs)
-                commentList.value = commentList.value
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            } finally {
 
             }
+
+
         }
     }
 

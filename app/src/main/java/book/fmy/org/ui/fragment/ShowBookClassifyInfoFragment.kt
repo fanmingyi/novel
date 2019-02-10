@@ -1,20 +1,24 @@
 package book.fmy.org.ui.fragment
 
-import androidx.lifecycle.ViewModelProviders
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ActivityCompat
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.view.ViewCompat
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-
 import book.fmy.org.R
 import book.fmy.org.adapters.HomeClassifyRightBookShowRecommendAdapter
+import book.fmy.org.constant.Const
+import book.fmy.org.ui.activity.BookIntroductionActivity
 import book.fmy.org.viewmodels.ShowBookClassifyInfoViewModel
-import kotlinx.android.synthetic.main.blank_fragment.*
 import kotlinx.android.synthetic.main.fragment_show_book_classify_info.*
+import kotlinx.android.synthetic.main.item_main_middle_recommend_layout.view.*
 
 class ShowBookClassifyInfoFragment constructor() : BaseFragment<ShowBookClassifyInfoViewModel>() {
 
@@ -110,7 +114,6 @@ class ShowBookClassifyInfoFragment constructor() : BaseFragment<ShowBookClassify
             viewModel.getCategoryBookList(gender, major, minor, startIndex, limit)
 
         }, rv_show_book)
-
         viewModel.categoriBooklist.observe(viewLifecycleOwner, Observer {
             homeClassifyRightBookShowRecommendAdapter.notifyDataSetChanged()
             startIndex += it.size
@@ -118,6 +121,28 @@ class ShowBookClassifyInfoFragment constructor() : BaseFragment<ShowBookClassify
         })
 
         viewModel.getCategoryBookList(gender, major, minor, startIndex, limit)
+
+        homeClassifyRightBookShowRecommendAdapter.setOnItemClickListener { adapter, view, position ->
+
+
+            val intent = Intent(this@ShowBookClassifyInfoFragment.context, BookIntroductionActivity::class.java)
+
+            val data = homeClassifyRightBookShowRecommendAdapter.dataList[position]
+
+            intent.putExtra(Const.IntentData.BOOK_INFO_OBJ_INTENT_KEY, data)
+
+
+            val pairCover = androidx.core.util.Pair<View, String>(
+                view.iv_book_cover,
+                ViewCompat.getTransitionName(view.iv_book_cover)
+            )
+            val makeSceneTransitionAnimation =
+                ActivityOptionsCompat.makeSceneTransitionAnimation(activity!!, pairCover)
+
+            ActivityCompat.startActivity(context!!, intent, makeSceneTransitionAnimation.toBundle())
+
+
+        }
 
     }
 

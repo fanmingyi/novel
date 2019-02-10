@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import book.fmy.org.net.BookInfo
 import book.fmy.org.net.NetHelper
+import book.fmy.org.net.Recommend
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -46,10 +47,16 @@ class HomeMainViewModel(app: Application) : BaseViewModel(app) {
     fun getMiddleRecommendBooks() {
 
         launch {
-            val recommend = NetHelper.service.recommend().await()
-            withContext(Dispatchers.Main){
-                middleRecommendBooks.value = recommend.books
+            val recommend: Recommend
+            try {
+                recommend = NetHelper.service.recommend().await()
+                withContext(Dispatchers.Main){
+                    middleRecommendBooks.value = recommend.books
+                }
+            } catch (e: Exception) {
+            e.printStackTrace()
             }
+
         }
     }
 

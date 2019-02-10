@@ -19,7 +19,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 import kotlinx.android.synthetic.main.book_introduction_fragment.*
-import kotlinx.android.synthetic.main.fragment_home_main.*
 
 class BookIntroductionFragment : BaseFragment<BookIntroductionViewModel>() {
 
@@ -97,6 +96,7 @@ class BookIntroductionFragment : BaseFragment<BookIntroductionViewModel>() {
 
 
 
+
         rv_comment.layoutManager = linearLayoutManager
         introduceCommendAdapter.bindToRecyclerView(rv_comment)
 
@@ -104,6 +104,9 @@ class BookIntroductionFragment : BaseFragment<BookIntroductionViewModel>() {
             introduceCommendAdapter.notifyDataSetChanged()
         })
 
+        var emptyViewHolder = LayoutInflater.from(context).inflate(R.layout.empty_list_layout, null)
+
+        introduceCommendAdapter.emptyView = emptyViewHolder
         viewModel.getComment()
 
 

@@ -89,7 +89,7 @@ class HomeMainFragment : BaseFragment<HomeMainViewModel>() {
                 val pairCover2 = androidx.core.util.Pair<View, String>(view.iv_book_cover,ViewCompat.getTransitionName(view.iv_book_cover))
                 val pairCover3= androidx.core.util.Pair<View, String>(view.tv_book_author,ViewCompat.getTransitionName(view.tv_book_author))
                 val makeSceneTransitionAnimation =
-                    ActivityOptionsCompat.makeSceneTransitionAnimation(activity!!, pairCover,pairCover2)
+                    ActivityOptionsCompat.makeSceneTransitionAnimation(activity!!, pairCover2)
 //                context!!.startActivity(intent)
 
                 ActivityCompat.startActivity(context!!, intent, makeSceneTransitionAnimation.toBundle())

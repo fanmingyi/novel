@@ -36,35 +36,39 @@ class HomeClassifyViewModel(app: Application) : BaseViewModel(app) {
 
     fun getSubCategoriesFlatList() {
         launch(Dispatchers.IO) {
-            val data = NetHelper.service.subategories().await()
+            try {
+                val data = NetHelper.service.subategories().await()
 
-            var list = mutableListOf<SubCategoriesFlat>()
+                var list = mutableListOf<SubCategoriesFlat>()
 
-            val maleList = data.male.map { subCategories ->
-                val mutableList = mutableListOf<SubCategoriesFlat>()
-                subCategories.mins.forEach { minName ->
-                    val subCategoriesFlat =
-                        SubCategoriesFlat(subCategories.major, minName, Const.Net.gender_type_male)
-                    mutableList.add(subCategoriesFlat)
+                val maleList = data.male.map { subCategories ->
+                    val mutableList = mutableListOf<SubCategoriesFlat>()
+                    subCategories.mins.forEach { minName ->
+                        val subCategoriesFlat =
+                            SubCategoriesFlat(subCategories.major, minName, Const.Net.gender_type_male)
+                        mutableList.add(subCategoriesFlat)
 
-                }
-                return@map mutableList
-            }.flatten()
+                    }
+                    return@map mutableList
+                }.flatten()
 
-            val femaleList = data.female.map { subCategories ->
-                val mutableList = mutableListOf<SubCategoriesFlat>()
-                subCategories.mins.forEach { minName ->
-                    val subCategoriesFlat =
-                        SubCategoriesFlat(subCategories.major, minName, Const.Net.gender_type_female)
-                    mutableList.add(subCategoriesFlat)
-                }
+                val femaleList = data.female.map { subCategories ->
+                    val mutableList = mutableListOf<SubCategoriesFlat>()
+                    subCategories.mins.forEach { minName ->
+                        val subCategoriesFlat =
+                            SubCategoriesFlat(subCategories.major, minName, Const.Net.gender_type_female)
+                        mutableList.add(subCategoriesFlat)
+                    }
 
-                return@map mutableList
-            }.flatten()
+                    return@map mutableList
+                }.flatten()
 
-            list.addAll(maleList)
-            list.addAll(femaleList)
-            subCategoriesFlatList.postValue(list)
+                list.addAll(maleList)
+                list.addAll(femaleList)
+                subCategoriesFlatList.postValue(list)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
 
         }
     }
