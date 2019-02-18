@@ -29,6 +29,7 @@ class HomeMainFragment : BaseFragment<HomeMainViewModel>() {
 
 
     override fun getViewMode(): HomeMainViewModel {
+
         return ViewModelProviders.of(this).get(HomeMainViewModel::class.java)
     }
 

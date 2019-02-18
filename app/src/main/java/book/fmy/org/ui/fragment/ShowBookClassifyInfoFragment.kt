@@ -35,6 +35,8 @@ class ShowBookClassifyInfoFragment constructor() : BaseFragment<ShowBookClassify
 
 
     override fun getViewMode(): ShowBookClassifyInfoViewModel {
+
+
         return ViewModelProviders.of(this).get(ShowBookClassifyInfoViewModel::class.java)
     }
 
