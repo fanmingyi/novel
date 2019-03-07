@@ -4,12 +4,13 @@ import android.os.Bundle
 import androidx.annotation.CallSuper
 import androidx.fragment.app.Fragment
 import book.fmy.org.viewmodels.BaseViewModel
+import com.gyf.barlibrary.ImmersionFragment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlin.coroutines.CoroutineContext
 
-abstract class BaseFragment<T : BaseViewModel> : Fragment(), CoroutineScope {
+abstract class BaseFragment<T : BaseViewModel> : ImmersionFragment(), CoroutineScope {
     private val job: Job by lazy {
         Job()
     }

@@ -2,6 +2,9 @@ package book.fmy.org.net
 
 import android.os.Parcel
 import android.os.Parcelable
+import book.fmy.org.constant.Const.ItemType.BOOKCATALOGUE_ITEM_TYPE
+import book.fmy.org.constant.Const.ItemType.CHAPTER_ITEM_TYPE
+import com.chad.library.adapter.base.entity.MultiItemEntity
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 import java.io.Serializable
@@ -197,7 +200,7 @@ data class Doc(
     @SerializedName("block")
     var block: String = "",
     @SerializedName("book")
-    var book: BookInfo =BookInfo(),
+    var book: BookInfo = BookInfo(),
     @SerializedName("content")
     var content: String = "",
     @SerializedName("created")
@@ -232,3 +235,16 @@ data class Author(
     @SerializedName("type")
     var type: String = ""
 )
+
+data class Chapter(var sectionIndex: Int, var sectionName: String) : MultiItemEntity {
+    override fun getItemType(): Int {
+        return CHAPTER_ITEM_TYPE
+    }
+
+}
+
+data class BookCatalogue(var sectionIndex: Int, var sectionName: String, var subChapter: MutableList<Chapter>) {
+
+
+}
+

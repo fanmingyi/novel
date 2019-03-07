@@ -17,6 +17,7 @@ import book.fmy.org.adapters.HomeClassifyRightBookShowRecommendAdapter
 import book.fmy.org.constant.Const
 import book.fmy.org.ui.activity.BookIntroductionActivity
 import book.fmy.org.viewmodels.ShowBookClassifyInfoViewModel
+import com.gyf.barlibrary.ImmersionBar
 import kotlinx.android.synthetic.main.fragment_show_book_classify_info.*
 import kotlinx.android.synthetic.main.item_main_middle_recommend_layout.view.*
 
@@ -24,6 +25,11 @@ class ShowBookClassifyInfoFragment constructor() : BaseFragment<ShowBookClassify
 
 
     lateinit var gender: String
+
+    override fun initImmersionBar() {
+
+
+    }
 
     lateinit var major: String
 

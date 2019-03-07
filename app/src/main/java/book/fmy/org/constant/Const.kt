@@ -26,7 +26,11 @@ object Const {
          *BookInfo
          */
         const val BOOK_INFO_OBJ_INTENT_KEY = "BOOK_INFO_OBJ_INTENT_KEY"
+    }
 
 
+    object ItemType{
+        const val CHAPTER_ITEM_TYPE = 0
+        const val BOOKCATALOGUE_ITEM_TYPE = CHAPTER_ITEM_TYPE+1;
     }
 }

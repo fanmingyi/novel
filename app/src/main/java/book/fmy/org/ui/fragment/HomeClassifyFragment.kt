@@ -18,6 +18,9 @@ import book.fmy.org.viewmodels.HomeClassifyViewModel
 import kotlinx.android.synthetic.main.fragment_home_classify.*
 
 class HomeClassifyFragment : BaseFragment<HomeClassifyViewModel>() {
+    override fun initImmersionBar() {
+
+    }
 
     private val leftAllClassifyRvLinearLayoutManager by lazy {
         LinearLayoutManager(context, RecyclerView.VERTICAL, false);

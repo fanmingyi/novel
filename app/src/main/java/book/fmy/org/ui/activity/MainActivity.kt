@@ -1,18 +1,23 @@
 package book.fmy.org.ui.activity
 
+import android.graphics.Color
 import android.graphics.drawable.AnimatedVectorDrawable
 import android.graphics.drawable.StateListDrawable
 import android.os.Bundle
 import android.util.SparseArray
+import android.view.WindowManager
 import android.widget.ImageView
 import androidx.annotation.DrawableRes
 import androidx.fragment.app.Fragment
 import book.fmy.org.R
 import book.fmy.org.ui.fragment.HomeClassifyFragment
 import book.fmy.org.ui.fragment.HomeMainFragment
+import book.fmy.org.ui.fragment.PersonalFragment
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.tab_item_layout.view.*
+import androidx.constraintlayout.widget.ConstraintAttribute.setAttributes
+import com.gyf.barlibrary.ImmersionBar
 
 
 class MainActivity : BaseActivity() {
@@ -22,12 +27,19 @@ class MainActivity : BaseActivity() {
         val sparseArray = SparseArray<Fragment>()
         sparseArray.put(0, homeMainFragment)
         sparseArray.put(1, homeClassifyFragment)
+        sparseArray.put(2, personalFragment)
+
         sparseArray
 
     }
 
+
     val homeMainFragment: HomeMainFragment by lazy {
         val fragment = HomeMainFragment.newInstance()
+        fragment
+    }
+    val personalFragment: PersonalFragment by lazy {
+        val fragment = PersonalFragment.newInstance()
         fragment
     }
     private val homeClassifyFragment: HomeClassifyFragment by lazy {
@@ -37,9 +49,11 @@ class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTranslucentStatus(true)
         setContentView(R.layout.activity_main)
         initView()
         initClick()
+
     }
 
     private fun initClick() {
@@ -49,8 +63,20 @@ class MainActivity : BaseActivity() {
 
     private fun initView() {
         initNavacation()
+
     }
 
+    private fun setTranslucentStatus(on: Boolean) {
+        val win = window
+        val winParams = win.attributes
+        val bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
+        if (on) {
+            winParams.flags = winParams.flags or bits
+        } else {
+            winParams.flags = winParams.flags and bits.inv()
+        }
+        win.attributes = winParams
+    }
     private fun initNavacation() {
 
 

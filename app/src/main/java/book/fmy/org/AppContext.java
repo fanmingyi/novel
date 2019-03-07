@@ -16,12 +16,11 @@ import java.io.*;
  * @date 2019/1/2
  */
 public class AppContext extends Application {
+
     public static AppContext INSTANCE;
     {
         INSTANCE = this;
     }
-
-
 
     public static volatile Context applicationContext = null;
 

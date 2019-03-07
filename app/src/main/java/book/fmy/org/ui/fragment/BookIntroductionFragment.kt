@@ -1,7 +1,9 @@
 package book.fmy.org.ui.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Parcelable
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,16 +13,23 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import book.fmy.org.R
 import book.fmy.org.adapters.IntroduceCommendAdapter
+import book.fmy.org.adapters.IntroduceLeftCatalogueAdapter
 import book.fmy.org.constant.Const
 import book.fmy.org.net.BookInfo
 import book.fmy.org.utils.UnitUtils
 import book.fmy.org.viewmodels.BookIntroductionViewModel
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.chad.library.adapter.base.entity.MultiItemEntity
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 import kotlinx.android.synthetic.main.book_introduction_fragment.*
+import kotlinx.coroutines.launch
+import treader.ReadActivity2
 
 class BookIntroductionFragment : BaseFragment<BookIntroductionViewModel>() {
+    override fun initImmersionBar() {
+
+    }
 
     override fun getViewMode(): BookIntroductionViewModel {
         return ViewModelProviders.of(this).get(BookIntroductionViewModel::class.java)
@@ -60,6 +69,17 @@ class BookIntroductionFragment : BaseFragment<BookIntroductionViewModel>() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         initView()
+        initDate()
+    }
+
+    private fun initDate() {
+        launch {
+
+
+            //            val bookCategories = NetHelper.service.bookChapters(viewModel.bookInfo.value!!._id).await()
+//            bookCategories.chapters
+        }
+
     }
 
     val introduceCommendAdapter by lazy {
@@ -68,6 +88,7 @@ class BookIntroductionFragment : BaseFragment<BookIntroductionViewModel>() {
     val linearLayoutManager by lazy {
         LinearLayoutManager(context, RecyclerView.VERTICAL, false)
     }
+
 
     private fun initView() {
         viewModel.bookInfo.value?.apply {
@@ -92,8 +113,30 @@ class BookIntroductionFragment : BaseFragment<BookIntroductionViewModel>() {
             val serial = if (isSerial) "连载" else "完结"
 
             tv_isSerial.text = serial
-        }
+            viewModel.getchapter()
+            val introduceLeftCatalogueAdapter =
+                IntroduceLeftCatalogueAdapter(viewModel.chapters.value!! as MutableList<MultiItemEntity>)
 
+            rv_catalogue.adapter = introduceLeftCatalogueAdapter
+            rv_catalogue.layoutManager =
+                LinearLayoutManager(context, RecyclerView.VERTICAL, false) as RecyclerView.LayoutManager?
+
+            viewModel.chapters.observe(viewLifecycleOwner, Observer { chapterList ->
+                introduceLeftCatalogueAdapter.notifyDataSetChanged()
+
+            })
+
+            ll_catalog.setOnClickListener {
+
+                dl_catalogue.openDrawer(Gravity.LEFT)
+            }
+
+            btn_tart_read.setOnClickListener {
+                startActivity(Intent(context, ReadActivity2::class.java))
+            }
+
+
+        }
 
 
 

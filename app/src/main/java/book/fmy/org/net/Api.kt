@@ -4,6 +4,7 @@ import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
+import treader.db.BookCatalogue
 
 interface Api {
     /**
@@ -28,7 +29,6 @@ interface Api {
     fun subategories(
     ): Deferred<SubCategoriesList>
 
-
     /**
      * 获取带有二级目录的书籍分类
      */
@@ -41,7 +41,6 @@ interface Api {
         @Query("limit") limit: Int,
         @Query("type") type: String = "hot"
     ): Deferred<QueryCategoryInfo>
-
 
     /**
      * 获取带有二级目录的书籍分类
@@ -58,6 +57,14 @@ interface Api {
     fun queryBookComment(
         @Query("book") bookId: String
     ): Deferred<QueryComment>
+
+//    /**
+//     * 书籍目录
+//     */
+//    @GET("/book-chapters/{path}")
+//    fun bookChapters(
+//        @Path("path") bookId: String
+//    ): Deferred<QueryBookChapter>
 
 
 }

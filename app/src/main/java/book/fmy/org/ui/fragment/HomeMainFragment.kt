@@ -21,11 +21,17 @@ import book.fmy.org.net.BookInfo
 import book.fmy.org.ui.activity.BookIntroductionActivity
 import book.fmy.org.viewmodels.HomeMainViewModel
 import com.chad.library.adapter.base.BaseQuickAdapter
+import com.gyf.barlibrary.ImmersionBar
 import kotlinx.android.synthetic.main.fragment_home_main.*
 import kotlinx.android.synthetic.main.item_main_middle_recommend_layout.view.*
 
 
 class HomeMainFragment : BaseFragment<HomeMainViewModel>() {
+
+
+    override fun initImmersionBar() {
+//        .with(this).statusBarColor(R.color.colorPrimary).init();
+    }
 
 
     override fun getViewMode(): HomeMainViewModel {
