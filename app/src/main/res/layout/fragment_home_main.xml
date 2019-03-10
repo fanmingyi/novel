@@ -9,9 +9,54 @@
 		android:id="@+id/root"
 		tools:context="book.fmy.org.ui.fragment.HomeMainFragment">
 
+	<com.google.android.material.appbar.AppBarLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+		<androidx.appcompat.widget.Toolbar
+				android:id="@+id/toolbar"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="@color/colorAccent"
+				android:minHeight="0dp"
+				android:paddingBottom="4dp"
+				>
+
+			<androidx.constraintlayout.widget.ConstraintLayout
+					android:layout_width="match_parent"
+					android:layout_marginLeft="0dp"
+					android:paddingRight="10dp"
+					android:layout_height="wrap_content">
+
+				<TextView
+						android:text="书城"
+						app:layout_constraintTop_toTopOf="parent"
+						android:textColor="#fff"
+						android:textSize="21sp"
+						app:layout_constraintLeft_toLeftOf="parent"
+						app:layout_constraintRight_toRightOf="parent"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"/>
+
+
+				<ImageView
+						app:layout_constraintTop_toTopOf="parent"
+						app:layout_constraintRight_toRightOf="parent"
+						android:src="@android:drawable/ic_menu_search"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"/>
+			</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+		</androidx.appcompat.widget.Toolbar>
+
+
+	</com.google.android.material.appbar.AppBarLayout>
+
 	<androidx.core.widget.NestedScrollView
 			android:overScrollMode="never"
 			android:layout_width="match_parent"
+			app:layout_behavior="@string/appbar_scrolling_view_behavior"
 			android:layout_height="match_parent">
 
 		<androidx.constraintlayout.widget.ConstraintLayout
@@ -25,7 +70,9 @@
 					android:clipChildren="false"
 					android:id="@+id/cl_vp_father"
 					android:background="#fff"
-					android:layout_height="170dp">
+					android:paddingBottom="13dp"
+					android:paddingTop="3dp"
+					android:layout_height="wrap_content">
 
 				<androidx.viewpager.widget.ViewPager
 						android:id="@+id/vp"

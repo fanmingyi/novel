@@ -1,6 +1,5 @@
 package book.fmy.org.ui.activity
 
-import android.graphics.Color
 import android.graphics.drawable.AnimatedVectorDrawable
 import android.graphics.drawable.StateListDrawable
 import android.os.Bundle
@@ -14,10 +13,9 @@ import book.fmy.org.ui.fragment.HomeClassifyFragment
 import book.fmy.org.ui.fragment.HomeMainFragment
 import book.fmy.org.ui.fragment.PersonalFragment
 import com.google.android.material.tabs.TabLayout
+import com.gyf.barlibrary.ImmersionBar
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.tab_item_layout.view.*
-import androidx.constraintlayout.widget.ConstraintAttribute.setAttributes
-import com.gyf.barlibrary.ImmersionBar
 
 
 class MainActivity : BaseActivity() {
@@ -33,6 +31,10 @@ class MainActivity : BaseActivity() {
 
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        ImmersionBar.with(this).destroy();
+    }
 
     val homeMainFragment: HomeMainFragment by lazy {
         val fragment = HomeMainFragment.newInstance()
@@ -53,6 +55,8 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
         initView()
         initClick()
+        ImmersionBar.with(this).init();
+
 
     }
 

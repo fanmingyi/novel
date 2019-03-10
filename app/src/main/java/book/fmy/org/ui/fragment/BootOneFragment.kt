@@ -1,4 +1,4 @@
-package book.fmy.org
+package book.fmy.org.ui.fragment
 
 import android.graphics.Color
 import android.os.Bundle
@@ -6,16 +6,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import book.fmy.org.R
+import book.fmy.org.viewmodels.BootOneViewModel
 import java.util.*
 
 
-class BlankFragment : Fragment() {
+class BootOneFragment : Fragment() {
 
     companion object {
-        fun newInstance() = BlankFragment()
+        fun newInstance() = BootOneFragment()
     }
 
-    private lateinit var viewModel: BlankViewModel
+    private lateinit var viewModel: BootOneViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

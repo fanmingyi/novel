@@ -15,11 +15,14 @@ import book.fmy.org.R
 import book.fmy.org.adapters.HomeClassifyLeftListRecommendAdapter
 import book.fmy.org.net.SubCategoriesFlat
 import book.fmy.org.viewmodels.HomeClassifyViewModel
+import com.gyf.barlibrary.ImmersionBar
 import kotlinx.android.synthetic.main.fragment_home_classify.*
 
 class HomeClassifyFragment : BaseFragment<HomeClassifyViewModel>() {
     override fun initImmersionBar() {
-
+        ImmersionBar.with(this).reset().fitsSystemWindows(true).navigationBarColor(R.color.colorPrimary)
+            .statusBarColor(R.color.colorPrimary)
+            .init();
     }
 
     private val leftAllClassifyRvLinearLayoutManager by lazy {

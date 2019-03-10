@@ -21,13 +21,15 @@ open class BaseActivity : AppCompatActivity(), CoroutineScope {
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
-        ImmersionBar.with(this).init();
+//        ImmersionBar.with(this).init();
+
 
     }
     override fun onDestroy() {
         super.onDestroy()
         job.cancel()
         ImmersionBar.with(this).destroy();
+
 
     }
 }

@@ -10,6 +10,7 @@ import android.view.ViewGroup
 
 import book.fmy.org.R
 import book.fmy.org.viewmodels.HomeMainViewModel
+import com.gyf.barlibrary.ImmersionBar
 
 class PersonalFragment : BaseFragment<PersonalViewModel>() {
 
@@ -18,6 +19,9 @@ class PersonalFragment : BaseFragment<PersonalViewModel>() {
     }
 
     override fun initImmersionBar() {
+        ImmersionBar.with(this).reset().navigationBarColor(R.color.colorPrimary)
+            .statusBarColor(android.R.color.transparent)
+            .init();
     }
 
     companion object {

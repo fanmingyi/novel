@@ -1,7 +1,7 @@
-package book.fmy.org
+package book.fmy.org.viewmodels
 
 import androidx.lifecycle.ViewModel;
 
-class BlankViewModel : ViewModel() {
+class BootOneViewModel : ViewModel() {
     // TODO: Implement the ViewModel
 }

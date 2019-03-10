@@ -1,32 +1,26 @@
-package book.fmy.org
+package book.fmy.org.ui.activity
 
-import android.annotation.TargetApi
-import android.content.Intent
-import android.net.Uri
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.Settings
-import android.transition.Scene
-import android.util.Log
-import android.view.View
-import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import androidx.viewpager.widget.PagerAdapter
-import androidx.viewpager.widget.ViewPager
+import book.fmy.org.ui.animation.BootAnimationHelper
+import book.fmy.org.R
+import book.fmy.org.ui.fragment.BootOneFragment
+import book.fmy.org.ui.fragment.BootTwoFragment
+import com.gyf.barlibrary.ImmersionBar
 import kotlinx.android.synthetic.main.activity_boot.*
-import java.lang.Thread.sleep
-import java.security.AccessController.getContext
 
 /**
  * 第一次登陆的时候的引导页面
  */
-class BootActivity : AppCompatActivity() {
+class BootActivity : BaseActivity() {
 
 
-    var fragments = arrayOf(BlankFragment.newInstance(), BlankFragment.newInstance())
+    var fragments = arrayOf(
+        BootOneFragment.newInstance(), BootOneFragment.newInstance(),
+        BootTwoFragment.newInstance())
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_boot)
@@ -36,6 +30,8 @@ class BootActivity : AppCompatActivity() {
         var bootAnimationHelper = BootAnimationHelper()
         vp.addOnPageChangeListener(bootAnimationHelper)
         vp.setPageTransformer(false, bootAnimationHelper)
+        ImmersionBar.with(this).init()
+
     }
 
     inner class VpAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
@@ -44,8 +40,13 @@ class BootActivity : AppCompatActivity() {
         }
 
         override fun getCount(): Int {
-            return 2;
+            return fragments.size
         }
 
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        ImmersionBar.with(this).destroy();
     }
 }

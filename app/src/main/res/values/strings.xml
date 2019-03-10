@@ -7,7 +7,10 @@
 
 
 
-
+	<string-array name="gender">
+		<item>男生</item>
+		<item>女生</item>
+	</string-array>
 
 	<string name="action_search_file">搜索文件</string>
 	<string name="action_add_bookmark">添加书签</string>

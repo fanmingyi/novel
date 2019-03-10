@@ -35,7 +35,6 @@ public class AppContext extends Application {
         PageFactory.createPageFactory(this);
         PageFactory2.createPageFactory(this);
 
-//        initialEnv();
     }
 
 

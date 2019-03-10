@@ -30,7 +30,10 @@ class HomeMainFragment : BaseFragment<HomeMainViewModel>() {
 
 
     override fun initImmersionBar() {
-//        .with(this).statusBarColor(R.color.colorPrimary).init();
+        ImmersionBar.with(this).reset().fitsSystemWindows(true).navigationBarColor(R.color.colorPrimary)
+            .statusBarColor(R.color.colorPrimary)
+            .init();
+
     }
 
 
@@ -92,9 +95,18 @@ class HomeMainFragment : BaseFragment<HomeMainViewModel>() {
 
                 intent.putExtra(Const.IntentData.BOOK_INFO_OBJ_INTENT_KEY, data)
 
-                val pairCover = androidx.core.util.Pair<View, String>(view.tv_book_name,ViewCompat.getTransitionName(view.tv_book_name))
-                val pairCover2 = androidx.core.util.Pair<View, String>(view.iv_book_cover,ViewCompat.getTransitionName(view.iv_book_cover))
-                val pairCover3= androidx.core.util.Pair<View, String>(view.tv_book_author,ViewCompat.getTransitionName(view.tv_book_author))
+                val pairCover = androidx.core.util.Pair<View, String>(
+                    view.tv_book_name,
+                    ViewCompat.getTransitionName(view.tv_book_name)
+                )
+                val pairCover2 = androidx.core.util.Pair<View, String>(
+                    view.iv_book_cover,
+                    ViewCompat.getTransitionName(view.iv_book_cover)
+                )
+                val pairCover3 = androidx.core.util.Pair<View, String>(
+                    view.tv_book_author,
+                    ViewCompat.getTransitionName(view.tv_book_author)
+                )
                 val makeSceneTransitionAnimation =
                     ActivityOptionsCompat.makeSceneTransitionAnimation(activity!!, pairCover2)
 //                context!!.startActivity(intent)
