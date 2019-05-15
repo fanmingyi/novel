@@ -1,5 +1,6 @@
 package book.fmy.org.ui.fragment
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -9,8 +10,11 @@ import android.view.View
 import android.view.ViewGroup
 
 import book.fmy.org.R
+import book.fmy.org.ui.activity.HelperAndTellActivity2
+import book.fmy.org.ui.activity.ui.helperandtellactivity2.HelperAndTellActivity2ViewModel
 import book.fmy.org.viewmodels.HomeMainViewModel
 import com.gyf.barlibrary.ImmersionBar
+import kotlinx.android.synthetic.main.personal_fragment.*
 
 class PersonalFragment : BaseFragment<PersonalViewModel>() {
 
@@ -40,6 +44,15 @@ class PersonalFragment : BaseFragment<PersonalViewModel>() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(PersonalViewModel::class.java)
         // TODO: Use the ViewModel
+
+
+        cl_helpAndTell.setOnClickListener {
+
+            val intent = Intent(this@PersonalFragment.context, HelperAndTellActivity2::class.java)
+
+
+            startActivity(intent)
+        }
     }
 
     override fun onHiddenChanged(hidden: Boolean) {

@@ -13,7 +13,7 @@ class BookIntroductionActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.book_introduction_activity)
-        ImmersionBar.with(this).init();
+        ImmersionBar.with(this).init()
 
         val bookId = intent.getParcelableExtra<BookInfo>(Const.IntentData.BOOK_INFO_OBJ_INTENT_KEY)
 

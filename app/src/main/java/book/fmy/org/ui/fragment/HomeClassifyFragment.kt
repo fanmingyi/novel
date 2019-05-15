@@ -22,7 +22,7 @@ class HomeClassifyFragment : BaseFragment<HomeClassifyViewModel>() {
     override fun initImmersionBar() {
         ImmersionBar.with(this).reset().fitsSystemWindows(true).navigationBarColor(R.color.colorPrimary)
             .statusBarColor(R.color.colorPrimary)
-            .init();
+            .init()
     }
 
     private val leftAllClassifyRvLinearLayoutManager by lazy {

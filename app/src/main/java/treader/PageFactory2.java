@@ -8,6 +8,8 @@ import android.graphics.*;
 import android.os.AsyncTask;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
 
@@ -28,7 +30,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PageFactory2 {
+static class s extends View {
 
+    public s(Context context) {
+        super(context);
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        return super.dispatchTouchEvent(event);
+    }
+}
     private static final String TAG = "PageFactory";
     private static PageFactory2 pageFactory;
 
