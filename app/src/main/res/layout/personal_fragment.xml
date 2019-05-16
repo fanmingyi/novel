@@ -312,6 +312,7 @@
 
 			<androidx.constraintlayout.widget.ConstraintLayout
 					android:layout_width="match_parent"
+					android:id="@+id/cl_apply_author"
 					android:layout_height="50dp">
 
 				<ImageView
@@ -325,7 +326,7 @@
 
 				<androidx.appcompat.widget.AppCompatTextView
 						android:layout_width="wrap_content"
-						android:text="我的作品"
+						android:text="作家申请"
 						android:id="@+id/tv_myworking"
 						app:layout_constraintTop_toTopOf="parent"
 						app:layout_constraintBottom_toBottomOf="parent"
@@ -346,7 +347,7 @@
 
 				<TextView
 						android:layout_width="wrap_content"
-						android:text="3本"
+						android:text=""
 						app:layout_constraintTop_toTopOf="parent"
 						app:layout_constraintBottom_toBottomOf="parent"
 						app:layout_constraintRight_toLeftOf="@+id/ic_right_arrow2"
@@ -363,58 +364,7 @@
 			</androidx.constraintlayout.widget.ConstraintLayout>
 
 
-			<androidx.constraintlayout.widget.ConstraintLayout
-					android:layout_width="match_parent"
-					android:layout_height="50dp">
 
-				<ImageView
-						android:id="@+id/iv_msg"
-						app:layout_constraintTop_toTopOf="parent"
-						app:layout_constraintBottom_toBottomOf="parent"
-						android:layout_width="30dp"
-						app:layout_constraintLeft_toLeftOf="parent"
-						android:src="@mipmap/icon_msg"
-						android:layout_height="30dp"/>
-
-				<androidx.appcompat.widget.AppCompatTextView
-						android:layout_width="wrap_content"
-						android:text="我的消息"
-						android:id="@+id/tv_tip3"
-
-						app:layout_constraintTop_toTopOf="parent"
-						app:layout_constraintBottom_toBottomOf="parent"
-						android:layout_marginLeft="10dp"
-						app:layout_constraintLeft_toRightOf="@+id/iv_msg"
-						android:textColor="#414141"
-						android:textSize="17sp"
-						android:layout_height="wrap_content"/>
-
-				<ImageView
-						app:layout_constraintTop_toTopOf="parent"
-						app:layout_constraintBottom_toBottomOf="parent"
-						android:src="@mipmap/icon_right_arrow"
-						android:layout_width="30dp"
-						android:id="@+id/ic_right_arrow3"
-						app:layout_constraintRight_toRightOf="parent"
-						android:layout_height="30dp"/>
-
-				<TextView
-						android:layout_width="wrap_content"
-						android:text=""
-						app:layout_constraintTop_toTopOf="parent"
-						app:layout_constraintBottom_toBottomOf="parent"
-						app:layout_constraintRight_toLeftOf="@+id/ic_right_arrow3"
-						android:textColor="#D8D8D8"
-						android:layout_height="wrap_content"/>
-
-				<View
-						android:layout_width="0dp"
-						app:layout_constraintBottom_toBottomOf="parent"
-						android:background="#eee"
-						app:layout_constraintRight_toRightOf="parent"
-						app:layout_constraintLeft_toLeftOf="@+id/tv_tip3"
-						android:layout_height="0.7dp"/>
-			</androidx.constraintlayout.widget.ConstraintLayout>
 			<androidx.constraintlayout.widget.ConstraintLayout
 					android:layout_width="match_parent"
 					android:id="@+id/cl_broswer_histrory"
@@ -522,6 +472,7 @@
 
 			<androidx.constraintlayout.widget.ConstraintLayout
 					android:layout_width="match_parent"
+					android:id="@+id/cl_seebook"
 					android:layout_height="50dp">
 
 				<ImageView

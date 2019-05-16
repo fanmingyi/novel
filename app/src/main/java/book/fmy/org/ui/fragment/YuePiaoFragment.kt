@@ -1,4 +1,4 @@
-package book.fmy.org.ui.activity.ui.yuepiao
+package book.fmy.org.ui.fragment
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -6,15 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import book.fmy.org.R
-import book.fmy.org.ui.fragment.BaseFragment
+import book.fmy.org.viewmodels.YuePiaoViewModel
 import com.chad.library.adapter.base.BaseViewHolder
 import com.gyf.barlibrary.ImmersionBar
-import com.yinglan.shadowimageview.ShadowImageView
-import kotlinx.android.synthetic.main.item_browser_history.view.*
 import kotlinx.android.synthetic.main.item_yuepiao.view.*
 import kotlinx.android.synthetic.main.yue_piao_fragment.*
 

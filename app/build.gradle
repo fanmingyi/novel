@@ -49,8 +49,6 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0-beta01'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0'
-
-
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
@@ -96,9 +94,12 @@ dependencies {
     implementation 'com.gyf.immersionbar:immersionbar:2.3.3'
 
     //图片阴影 https://github.com/yingLanNull/ShadowImageView/blob/master/READEME_CN.md
-    compile 'com.yinglan.shadowimageview:shadowimageview:1.0.4'
+    implementation 'com.yinglan.shadowimageview:shadowimageview:1.0.4'
 
     //时光轴框架 https://github.com/vivian8725118/TimeLine/blob/master/README_CHINESE.md
     implementation 'com.vivian.widgets:TimeLineItemDecoration:1.5'
+
+    //时光轴 https://github.com/baoyachi/StepView
+    implementation 'com.github.baoyachi:StepView:1.9'
 
 }

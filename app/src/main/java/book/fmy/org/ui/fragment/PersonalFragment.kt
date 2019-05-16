@@ -1,6 +1,7 @@
 package book.fmy.org.ui.fragment
 
 import android.content.Intent
+import android.net.Uri
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import android.view.ViewGroup
 import book.fmy.org.R
 import book.fmy.org.ui.activity.BrowserHistoryActivity
 import book.fmy.org.ui.activity.HelperAndTellActivity
+import book.fmy.org.ui.activity.SeeBooksActivity
 import book.fmy.org.ui.activity.YuePiaoActivity
 import com.gyf.barlibrary.ImmersionBar
 import kotlinx.android.synthetic.main.personal_fragment.*
@@ -66,7 +68,23 @@ class PersonalFragment : BaseFragment<PersonalViewModel>() {
             startActivity(intent)
         }
 
+        cl_seebook.setOnClickListener {
+            val intent = Intent(this@PersonalFragment.context, SeeBooksActivity::class.java)
 
+            startActivity(intent)
+        }
+
+        cl_apply_author.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse("https://q.eqxiu.com/s/04RSNhoP");
+            startActivity(intent)
+        }
+
+        cl_apply_author.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse("https://q.eqxiu.com/s/04RSNhoP");
+            startActivity(intent)
+        }
     }
 
     override fun onHiddenChanged(hidden: Boolean) {

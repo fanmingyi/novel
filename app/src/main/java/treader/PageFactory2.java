@@ -30,17 +30,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PageFactory2 {
-static class s extends View {
+    static class s extends View {
 
-    public s(Context context) {
-        super(context);
+        public s(Context context) {
+            super(context);
+        }
+
+        @Override
+        public boolean dispatchTouchEvent(MotionEvent event) {
+            return super.dispatchTouchEvent(event);
+        }
     }
 
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent event) {
-        return super.dispatchTouchEvent(event);
-    }
-}
     private static final String TAG = "PageFactory";
     private static PageFactory2 pageFactory;
 
@@ -520,11 +521,23 @@ static class s extends View {
         Log.e("begin", currentPage.getEnd() + 1 + "");
 
         List testArray = new ArrayList<String>();
-        testArray.add("++++++");
-        testArray.add("++++++");
-        testArray.add("++++++");
-        testArray.add("++++++");
-        testArray.add("++++++");
+       testArray.add("莫言说《蛙》所写的内容");
+       testArray.add("对“80后”、“90后”来说");
+       testArray.add("会是不甚了解的事实");
+       testArray.add("小说通过讲述一位乡村女医生的人生经历");
+       testArray.add("既反映了乡土中国60年生育史");
+       testArray.add("也揭示了当代中国知识分子灵魂深处的矛盾");
+       testArray.add("也揭示了当代中国知识分子灵魂深处的矛盾");
+       testArray.add("陈眉的，文中提到姑姑和小狮子有些精神错乱");
+       testArray.add("最后的结局其实是一部分真实一部分是万小跑对外宣称的结局");
+       testArray.add("最后一节里，有时候＂小狮子＂其实是代指＂陈眉＂");
+       testArray.add("所以才在牛蛙养殖中心的秘密房间里接生。");
+       testArray.add("说高龄产妇专家不敢接手，其实是个幌子");
+       testArray.add("姑姑、小狮子、袁腮、万小跑一起守护着这个秘");
+       testArray.add("姑姑和小狮子由于精神问题很有可能已经相信了");
+       testArray.add("文献分析法是指通过对收集到的某方面的文献资料进行研究");
+       testArray.add("以探明研究对象的性质和状况");
+
         trPage.setLines(testArray);
         Log.e("end", mBookUtil.getPosition() + "");
         trPage.setEnd(mBookUtil.getPosition());
@@ -540,12 +553,18 @@ static class s extends View {
         Log.e("end", "用户钱一页面");
 
         List testArray = new ArrayList<String>();
-        testArray.add("前一章");
-        testArray.add("前一章");
-        testArray.add("前一章");
-        testArray.add("前一章");
-        testArray.add("前一章");
-        testArray.add("前一章");
+     testArray.add("不管怎么样都希望蛙能快乐的成长。");
+     testArray.add("可是好景不长，事事往往都是事与愿违");
+     testArray.add("可是好景不长，事事往往都是事与愿违");
+     testArray.add("小说通过讲述一位乡村女医生的人生经历");
+     testArray.add("既反映了乡土中国60年生育史");
+     testArray.add("也揭示了当代中国知识分子灵魂深处的矛盾与懦弱");
+     testArray.add("莫言说“蛙”其实是一个图腾");
+     testArray.add("是作为繁衍的象征");
+     testArray.add("小说中，“蛙”和“娃”有着许多关联。");
+     testArray.add("莫言的长篇小说《蛙》通过讲述从事妇产科工");
+     testArray.add("作50多年的乡村女医生姑姑的人生经历");
+     testArray.add("反映新中国近60年波澜起伏的农村生育史");
 
         trPage.setLines(testArray);
         Log.e("begin", mBookUtil.getPosition() + "");
@@ -560,12 +579,19 @@ static class s extends View {
         mBookUtil.setPostition(begin - 1);
 
         List testArray = new ArrayList<String>();
-        testArray.add("===========");
-        testArray.add("===========");
-        testArray.add("===========");
-        testArray.add("===========");
-        testArray.add("===========");
-        testArray.add("===========");
+        testArray.add("通过浏览文献的篇名、目次、摘要、引言");
+        testArray.add("信息来源包括内部信息和外部信息");
+        testArray.add("内部信息包括《员工手册》、《公司管理制度》、《职位职责说明》、《绩效评价》、《会议记录》、《作业流程说明》、《ISO质量文件》、《分权手册》、《工作环境描述》、《员工生产记录》");
+        testArray.add("外部信息主要指其他企业工作分析的结果");
+        testArray.add("这些资料可以为本企业的工作分析提供参照");
+        testArray.add("为了保证所收集到的信息有较强的适用性");
+        testArray.add("在收集信息的时候应该注意两点");
+        testArray.add("第一,目标企业应该与本企业在性质上或者行业上具有较高的相似性");
+        testArray.add("第二,目标职位应该与本企业典型职位有较高的相似性");
+        testArray.add("对调查所得的情况作分析判断，形成主题概念。");
+        testArray.add("确定选题。进行文献分析时需要快速浏览文献,从大量的文档中寻找有效信息点.");
+        testArray.add("收集文献。针对文献中信息不完整和缺乏连贯性的情况,应一一做好标记,在编制工作分析提纲时,作为重点问题加以明示；");
+
         trPage.setLines(testArray);
         trPage.setEnd(mBookUtil.getPosition());
         return trPage;

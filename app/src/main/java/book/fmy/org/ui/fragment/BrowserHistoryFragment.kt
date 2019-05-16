@@ -83,19 +83,7 @@ class BrowserHistoryFragment() : BaseFragment<BrowserHistoryViewModel>() {
         data.add(Pair("2019.05.13. 02:31", "可以我喜欢"))
         data.add(Pair("2019.05.13. 01:41", "莫名的喜欢你"))
         data.add(Pair("2019.05.13. 00:21", "打卡签到算了"))
-        data.add(Pair("2019.05.13. 00:21", "打卡签到算了"))
-        data.add(Pair("2019.05.13. 00:21", "打卡签到算了"))
-        data.add(Pair("2019.05.13. 00:21", "打卡签到算了"))
-        data.add(Pair("2019.05.13. 00:21", "打卡签到算了"))
-        data.add(Pair("2019.05.13. 00:21", "打卡签到算了"))
-        data.add(Pair("2019.05.13. 00:21", "打卡签到算了"))
-        data.add(Pair("2019.05.13. 00:21", "打卡签到算了"))
-        data.add(Pair("2019.05.13. 00:21", "打卡签到算了"))
-        data.add(Pair("2019.05.13. 00:21", "打卡签到算了"))
-        data.add(Pair("2019.05.13. 00:21", "打卡签到算了"))
-        data.add(Pair("2019.05.13. 00:21", "打卡签到算了"))
-        data.add(Pair("2019.05.13. 00:21", "打卡签到算了"))
-        data.add(Pair("2019.05.13. 00:21", "打卡签到算了"))
+
 
         rv_list.adapter = listAdapter
 

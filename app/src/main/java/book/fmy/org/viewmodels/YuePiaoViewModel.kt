@@ -1,4 +1,4 @@
-package book.fmy.org.ui.activity.ui.yuepiao
+package book.fmy.org.viewmodels
 
 import android.app.Application
 import androidx.lifecycle.ViewModel
