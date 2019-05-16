@@ -27,7 +27,9 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.HelperAndTellActivity2">
+        <activity android:name=".ui.activity.BrowserHistoryActivity">
+        </activity>
+        <activity android:name=".ui.activity.HelperAndTellActivity">
         </activity>
         <activity android:name=".ui.activity.BookIntroductionActivity">
 

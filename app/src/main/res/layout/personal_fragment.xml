@@ -417,6 +417,7 @@
 			</androidx.constraintlayout.widget.ConstraintLayout>
 			<androidx.constraintlayout.widget.ConstraintLayout
 					android:layout_width="match_parent"
+					android:id="@+id/cl_broswer_histrory"
 					android:layout_height="50dp">
 
 				<ImageView

@@ -1,20 +1,19 @@
-package book.fmy.org.ui.activity.ui.helperandtellactivity2
+package book.fmy.org.ui.fragment
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import book.fmy.org.R
-import book.fmy.org.ui.fragment.BaseFragment
+import book.fmy.org.viewmodels.HelperAndTellActivityViewModel
 import com.gyf.barlibrary.ImmersionBar
 import kotlinx.android.synthetic.main.helper_and_tell_activity2_fragment.*
 
-class HelperAndTellActivity2Fragment : BaseFragment<HelperAndTellActivity2ViewModel>() {
-    override fun getViewMode(): HelperAndTellActivity2ViewModel {
-        return ViewModelProviders.of(this).get(HelperAndTellActivity2ViewModel::class.java)
+class HelperAndTellActivityFragment : BaseFragment<HelperAndTellActivityViewModel>() {
+    override fun getViewMode(): HelperAndTellActivityViewModel {
+        return ViewModelProviders.of(this).get(HelperAndTellActivityViewModel::class.java)
 
     }
 
@@ -27,7 +26,7 @@ class HelperAndTellActivity2Fragment : BaseFragment<HelperAndTellActivity2ViewMo
 
 
     companion object {
-        fun newInstance() = HelperAndTellActivity2Fragment()
+        fun newInstance() = HelperAndTellActivityFragment()
     }
 
 

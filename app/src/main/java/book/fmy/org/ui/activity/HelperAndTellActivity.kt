@@ -3,10 +3,10 @@ package book.fmy.org.ui.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import book.fmy.org.R
-import book.fmy.org.ui.activity.ui.helperandtellactivity2.HelperAndTellActivity2Fragment
+import book.fmy.org.ui.fragment.HelperAndTellActivityFragment
 import com.gyf.barlibrary.ImmersionBar
 
-class HelperAndTellActivity2 : AppCompatActivity() {
+class HelperAndTellActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,7 +16,7 @@ class HelperAndTellActivity2 : AppCompatActivity() {
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, HelperAndTellActivity2Fragment.newInstance())
+                .replace(R.id.container, HelperAndTellActivityFragment.newInstance())
                 .commitNow()
         }
     }

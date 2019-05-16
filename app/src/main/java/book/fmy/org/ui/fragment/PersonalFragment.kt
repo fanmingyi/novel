@@ -1,18 +1,15 @@
 package book.fmy.org.ui.fragment
 
 import android.content.Intent
-import android.graphics.Color
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
 import book.fmy.org.R
-import book.fmy.org.ui.activity.HelperAndTellActivity2
-import book.fmy.org.ui.activity.ui.helperandtellactivity2.HelperAndTellActivity2ViewModel
-import book.fmy.org.viewmodels.HomeMainViewModel
+import book.fmy.org.ui.activity.BrowserHistoryActivity
+import book.fmy.org.ui.activity.HelperAndTellActivity
 import com.gyf.barlibrary.ImmersionBar
 import kotlinx.android.synthetic.main.personal_fragment.*
 
@@ -48,7 +45,14 @@ class PersonalFragment : BaseFragment<PersonalViewModel>() {
 
         cl_helpAndTell.setOnClickListener {
 
-            val intent = Intent(this@PersonalFragment.context, HelperAndTellActivity2::class.java)
+            val intent = Intent(this@PersonalFragment.context, HelperAndTellActivity::class.java)
+
+
+            startActivity(intent)
+        }
+
+        cl_broswer_histrory.setOnClickListener {
+            val intent = Intent(this@PersonalFragment.context, BrowserHistoryActivity::class.java)
 
 
             startActivity(intent)
