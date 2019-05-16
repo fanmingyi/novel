@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.google.android.material.card.MaterialCardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:elevation="3dp"
+        app:contentPaddingLeft="3dp"
+        app:contentPaddingRight="3dp"
+        app:contentPaddingTop="5dp"
+        app:contentPaddingBottom="5dp"
+        app:cardCornerRadius="3dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+                android:gravity="center"
+
+                android:id="@+id/tv_time"
+                android:textColor="#888"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_width="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_height="wrap_content"
+                android:text="2019-05-16 08:46:49"
+        />
+        <TextView
+                android:gravity="center"
+                android:textColor="#888"
+                app:layout_constraintTop_toBottomOf="@id/tv_time"
+                android:id="@+id/tv_comment"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="与时俱进的年轻人"
+                app:layout_constraintRight_toRightOf="parent"
+        />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

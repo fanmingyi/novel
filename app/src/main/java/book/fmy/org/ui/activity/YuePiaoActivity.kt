@@ -3,20 +3,19 @@ package book.fmy.org.ui.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import book.fmy.org.R
-import book.fmy.org.ui.fragment.HelperAndTellActivityFragment
+import book.fmy.org.ui.activity.ui.yuepiao.YuePiaoFragment
 import com.gyf.barlibrary.ImmersionBar
 
-class HelperAndTellActivity : AppCompatActivity() {
+class YuePiaoActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        setContentView(R.layout.helper_and_tell_activity2_activity)
+        setContentView(R.layout.yue_piao_activity)
         ImmersionBar.with(this).init()
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, HelperAndTellActivityFragment.newInstance())
+                .replace(R.id.container, YuePiaoFragment.newInstance())
                 .commitNow()
         }
     }

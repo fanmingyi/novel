@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import book.fmy.org.R
 import book.fmy.org.ui.activity.BrowserHistoryActivity
 import book.fmy.org.ui.activity.HelperAndTellActivity
+import book.fmy.org.ui.activity.YuePiaoActivity
 import com.gyf.barlibrary.ImmersionBar
 import kotlinx.android.synthetic.main.personal_fragment.*
 
@@ -57,6 +58,15 @@ class PersonalFragment : BaseFragment<PersonalViewModel>() {
 
             startActivity(intent)
         }
+
+        cl_yuepiao.setOnClickListener {
+            val intent = Intent(this@PersonalFragment.context, YuePiaoActivity::class.java)
+
+
+            startActivity(intent)
+        }
+
+
     }
 
     override fun onHiddenChanged(hidden: Boolean) {

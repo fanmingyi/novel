@@ -6,16 +6,67 @@
         android:id="@+id/browserhistory"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.browserhistory.BrowserHistoryFragment">
+>
+    <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:id="@+id/al_title"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorAccent"
+                android:minHeight="0dp"
+                android:paddingBottom="4dp"
+        >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="0dp"
+                    android:paddingRight="10dp"
+                    android:layout_height="wrap_content">
+
+                <TextView
+                        android:text="评论"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:textColor="#fff"
+                        android:textSize="21sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <TextView
+            app:layout_constraintTop_toBottomOf="@id/al_title"
             android:id="@+id/message"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
             android:layout_width="wrap_content"
+            android:textColor="#888"
             android:layout_height="wrap_content"
-            android:text="BrowserHistoryFragment"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:text="评论记录:"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+    />
 
+    <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="0dp"
+            android:overScrollMode="never"
+            android:id="@+id/rv_list"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/message"
+            android:layout_height="0dp"></androidx.recyclerview.widget.RecyclerView>
 </androidx.constraintlayout.widget.ConstraintLayout>

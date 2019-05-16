@@ -95,6 +95,9 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.0.0'
     implementation 'com.gyf.immersionbar:immersionbar:2.3.3'
 
+    //图片阴影 https://github.com/yingLanNull/ShadowImageView/blob/master/READEME_CN.md
+    compile 'com.yinglan.shadowimageview:shadowimageview:1.0.4'
+
     //时光轴框架 https://github.com/vivian8725118/TimeLine/blob/master/README_CHINESE.md
     implementation 'com.vivian.widgets:TimeLineItemDecoration:1.5'
 

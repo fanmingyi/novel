@@ -27,6 +27,8 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".ui.activity.YuePiaoActivity">
+        </activity>
         <activity android:name=".ui.activity.BrowserHistoryActivity">
         </activity>
         <activity android:name=".ui.activity.HelperAndTellActivity">

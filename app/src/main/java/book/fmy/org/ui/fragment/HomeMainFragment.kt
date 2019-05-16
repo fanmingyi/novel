@@ -32,7 +32,7 @@ class HomeMainFragment : BaseFragment<HomeMainViewModel>() {
     override fun initImmersionBar() {
         ImmersionBar.with(this).reset().fitsSystemWindows(true).navigationBarColor(R.color.colorPrimary)
             .statusBarColor(R.color.colorPrimary)
-            .init();
+            .init()
 
     }
 
