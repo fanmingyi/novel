@@ -51,7 +51,7 @@ class HomeMainFragment : BaseFragment<HomeMainViewModel>() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(book.fmy.org.R.layout.fragment_home_main, container, false)
+        return inflater.inflate(R.layout.fragment_home_main, container, false)
     }
 
 

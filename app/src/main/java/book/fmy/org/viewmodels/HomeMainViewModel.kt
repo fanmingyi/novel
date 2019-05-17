@@ -38,7 +38,7 @@ class HomeMainViewModel(app: Application) : BaseViewModel(app) {
 
     fun getTopRecommendBooks() {
         topRecommendBooks.value = listOf(
-            "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1549190113345&di=260995f190b8f1522d98c5befbcdbe35&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F63a1a2768cfd82cb3215659c6c758bca61e9a4d7156b18-jZ1LwL_fw658",
+            "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558073794664&di=904874b60290ea272729a69385882e6b&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F018e8e562aec816ac7254878e36954.jpg%401280w_1l_2o_100sh.jpg",
             "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1549190262463&di=9b7261058c8bb0250e28562e06ece32a&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F017d8b5aa10040a80121246da9c3a2.jpg%401280w_1l_2o_100sh.jpg",
             "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1549190287303&di=f43340c6bea830ddf46f5434e990fd78&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F019c9b5aa10043a801206d96b64d66.jpg%401280w_1l_2o_100sh.jpg"
         )

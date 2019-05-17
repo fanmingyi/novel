@@ -40,12 +40,12 @@ import java.util.List;
  */
 public class ReadActivity2 extends BaseActivity {
     private static final String TAG = "ReadActivity";
-//    private final static String EXTRA_BOOK = "bookList";
+    //    private final static String EXTRA_BOOK = "bookList";
     private final static int MESSAGE_CHANGEPROGRESS = 1;
 
     @BindView(R.id.bookpage)
     PageWidget bookpage;
-//    @BindView(R.id.btn_return)
+    //    @BindView(R.id.btn_return)
 //    ImageButton btn_return;
 //    @BindView(R.id.ll_top)
 //    LinearLayout ll_top;
@@ -76,7 +76,7 @@ public class ReadActivity2 extends BaseActivity {
     @BindView(R.id.rl_read_bottom)
     RelativeLayout rl_read_bottom;
     @BindView(R.id.toolbar)
- public    Toolbar toolbar;
+    public Toolbar toolbar;
     @BindView(R.id.appbar)
     AppBarLayout appbar;
 
@@ -94,15 +94,15 @@ public class ReadActivity2 extends BaseActivity {
     private boolean isSpeaking = false;
 
     // 接收电池信息更新的广播
-    private BroadcastReceiver myReceiver = new BroadcastReceiver(){
+    private BroadcastReceiver myReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals(Intent.ACTION_BATTERY_CHANGED)) {
-                Log.e(TAG,Intent.ACTION_BATTERY_CHANGED);
+                Log.e(TAG, Intent.ACTION_BATTERY_CHANGED);
                 int level = intent.getIntExtra("level", 0);
                 pageFactory.updateBattery(level);
-            }else if (intent.getAction().equals(Intent.ACTION_TIME_TICK)){
-                Log.e(TAG,Intent.ACTION_TIME_TICK);
+            } else if (intent.getAction().equals(Intent.ACTION_TIME_TICK)) {
+                Log.e(TAG, Intent.ACTION_TIME_TICK);
                 pageFactory.updateTime();
             }
         }
@@ -117,7 +117,7 @@ public class ReadActivity2 extends BaseActivity {
     protected void initData() {
 
         System.out.println();
-        if(Build.VERSION.SDK_INT >= 14 && Build.VERSION.SDK_INT < 19){
+        if (Build.VERSION.SDK_INT >= 14 && Build.VERSION.SDK_INT < 19) {
             bookpage.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         }
 
@@ -160,7 +160,7 @@ public class ReadActivity2 extends BaseActivity {
         //获取intent中的携带的信息
 //        Intent intent = getIntent();
 //        bookList = (BookList) intent.getSerializableExtra(EXTRA_BOOK);
-        pageFactory=PageFactory2.getInstance();
+        pageFactory = PageFactory2.getInstance();
         bookpage.setPageMode(config.getPageMode());
         pageFactory.setPageWidget(bookpage);
 
@@ -187,6 +187,7 @@ public class ReadActivity2 extends BaseActivity {
     protected void initListener() {
         sb_progress.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             float pro;
+
             // 触发操作，拖动
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -277,7 +278,7 @@ public class ReadActivity2 extends BaseActivity {
 
             @Override
             public Boolean prePage() {
-                if (isShow || isSpeaking){
+                if (isShow || isSpeaking) {
                     return false;
                 }
 
@@ -292,7 +293,7 @@ public class ReadActivity2 extends BaseActivity {
             @Override
             public Boolean nextPage() {
                 Log.e("setTouchListener", "nextPage");
-                if (isShow || isSpeaking){
+                if (isShow || isSpeaking) {
                     return false;
                 }
 
@@ -326,16 +327,16 @@ public class ReadActivity2 extends BaseActivity {
 
 
     @Override
-    protected void onResume(){
+    protected void onResume() {
         super.onResume();
-        if (!isShow){
+        if (!isShow) {
             hideSystemUI();
         }
 
     }
 
     @Override
-    protected void onStop(){
+    protected void onStop() {
         super.onStop();
 
     }
@@ -354,15 +355,15 @@ public class ReadActivity2 extends BaseActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         // TODO Auto-generated method stub
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if (isShow){
+            if (isShow) {
                 hideReadSetting();
                 return true;
             }
-            if (mSettingDialog.isShowing()){
+            if (mSettingDialog.isShowing()) {
                 mSettingDialog.hide();
                 return true;
             }
-            if (mPageModeDialog.isShowing()){
+            if (mPageModeDialog.isShowing()) {
                 mPageModeDialog.hide();
                 return true;
             }
@@ -385,13 +386,13 @@ public class ReadActivity2 extends BaseActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        if (id == R.id.action_add_bookmark){
+        if (id == R.id.action_add_bookmark) {
             if (pageFactory.getCurrentPage() != null) {
-                List<BookMarks> bookMarksList = DataSupport.where("bookpath = ? and begin = ?", pageFactory.getBookPath(),pageFactory.getCurrentPage().getBegin() + "").find(BookMarks.class);
+                List<BookMarks> bookMarksList = DataSupport.where("bookpath = ? and begin = ?", pageFactory.getBookPath(), pageFactory.getCurrentPage().getBegin() + "").find(BookMarks.class);
 
-                if (!bookMarksList.isEmpty()){
+                if (!bookMarksList.isEmpty()) {
                     Toast.makeText(ReadActivity2.this, "该书签已存在", Toast.LENGTH_SHORT).show();
-                }else {
+                } else {
                     BookMarks bookMarks = new BookMarks();
                     String word = "";
                     for (String line : pageFactory.getCurrentPage().getLines()) {
@@ -415,7 +416,7 @@ public class ReadActivity2 extends BaseActivity {
                     }
                 }
             }
-        }else if (id == R.id.action_read_book){
+        } else if (id == R.id.action_read_book) {
 
         }
 
@@ -424,7 +425,7 @@ public class ReadActivity2 extends BaseActivity {
 
 
     public static boolean openBook(final BookList bookList, Activity context) {
-        if (bookList == null){
+        if (bookList == null) {
             throw new NullPointerException("BookList can not be null");
         }
 
@@ -467,7 +468,7 @@ public class ReadActivity2 extends BaseActivity {
     }
 
     //显示书本进度
-    public void showProgress(float progress){
+    public void showProgress(float progress) {
         if (rl_progress.getVisibility() != View.VISIBLE) {
             rl_progress.setVisibility(View.VISIBLE);
         }
@@ -475,25 +476,25 @@ public class ReadActivity2 extends BaseActivity {
     }
 
     //隐藏书本进度
-    public void hideProgress(){
+    public void hideProgress() {
         rl_progress.setVisibility(View.GONE);
     }
 
-    public void initDayOrNight(){
+    public void initDayOrNight() {
         mDayOrNight = config.getDayOrNight();
-        if (mDayOrNight){
+        if (mDayOrNight) {
             tv_dayornight.setText(getResources().getString(R.string.read_setting_day));
-        }else{
+        } else {
             tv_dayornight.setText(getResources().getString(R.string.read_setting_night));
         }
     }
 
     //改变显示模式
-    public void changeDayOrNight(){
-        if (mDayOrNight){
+    public void changeDayOrNight() {
+        if (mDayOrNight) {
             mDayOrNight = false;
             tv_dayornight.setText(getResources().getString(R.string.read_setting_night));
-        }else{
+        } else {
             mDayOrNight = true;
             tv_dayornight.setText(getResources().getString(R.string.read_setting_day));
         }
@@ -501,25 +502,25 @@ public class ReadActivity2 extends BaseActivity {
         pageFactory.setDayOrNight(mDayOrNight);
     }
 
-    private void setProgress(float progress){
-        DecimalFormat decimalFormat=new DecimalFormat("00.00");//构造方法的字符格式这里如果小数不足2位,会以0补足.
-        String p=decimalFormat.format(progress * 100.0);//format 返回的是字符串
+    private void setProgress(float progress) {
+        DecimalFormat decimalFormat = new DecimalFormat("00.00");//构造方法的字符格式这里如果小数不足2位,会以0补足.
+        String p = decimalFormat.format(progress * 100.0);//format 返回的是字符串
         tv_progress.setText(p + "%");
     }
 
-    public void setSeekBarProgress(float progress){
+    public void setSeekBarProgress(float progress) {
         sb_progress.setProgress((int) (progress * 10000));
     }
 
-    private void showReadSetting(){
+    private void showReadSetting() {
         isShow = true;
         rl_progress.setVisibility(View.GONE);
 
-        if (isSpeaking){
+        if (isSpeaking) {
             Animation topAnim = AnimationUtils.loadAnimation(this, R.anim.dialog_top_enter);
             rl_read_bottom.startAnimation(topAnim);
             rl_read_bottom.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             showSystemUI();
 
             Animation bottomAnim = AnimationUtils.loadAnimation(this, R.anim.dialog_enter);
@@ -555,8 +556,7 @@ public class ReadActivity2 extends BaseActivity {
     }
 
 
-
-    @OnClick({R.id.tv_progress, R.id.rl_progress, R.id.tv_pre, R.id.sb_progress, R.id.tv_next, R.id.tv_directory, R.id.tv_dayornight,R.id.tv_pagemode, R.id.tv_setting, R.id.bookpop_bottom, R.id.rl_bottom,R.id.tv_stop_read})
+    @OnClick({R.id.tv_progress, R.id.rl_progress, R.id.tv_pre, R.id.sb_progress, R.id.tv_next, R.id.tv_directory, R.id.tv_dayornight, R.id.tv_pagemode, R.id.tv_setting, R.id.bookpop_bottom, R.id.rl_bottom, R.id.tv_stop_read})
     public void onClick(View view) {
         switch (view.getId()) {
 //            case R.id.btn_return:
@@ -577,8 +577,8 @@ public class ReadActivity2 extends BaseActivity {
                 pageFactory.nextChapter();
                 break;
             case R.id.tv_directory:
-                Intent intent = new Intent(ReadActivity2.this, MarkActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(ReadActivity2.this, MarkActivity.class);
+//                startActivity(intent);
                 break;
             case R.id.tv_dayornight:
                 changeDayOrNight();
@@ -588,8 +588,8 @@ public class ReadActivity2 extends BaseActivity {
                 mPageModeDialog.show();
                 break;
             case R.id.tv_setting:
-                hideReadSetting();
-                mSettingDialog.show();
+//                hideReadSetting();
+//                mSettingDialog.show();
                 break;
             case R.id.bookpop_bottom:
                 break;

@@ -29,10 +29,6 @@
             android:theme="@style/AppTheme">
         <activity android:name=".ui.activity.SeeBooksActivity">
         </activity>
-        <activity android:name=".ui.activity.SeeHistroryActivity">
-        </activity>
-        <activity android:name=".ui.activity.HistoryActivity">
-        </activity>
         <activity android:name=".ui.activity.YuePiaoActivity">
         </activity>
         <activity android:name=".ui.activity.BrowserHistoryActivity">
